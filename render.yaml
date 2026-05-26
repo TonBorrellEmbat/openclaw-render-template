@@ -28,6 +28,13 @@ services:
         value: 1
       - key: DENCHCLAW_WEB_PORT
         value: 3100
+      # Public origin used to construct OAuth callback URLs (e.g. Composio).
+      # AlphaClaw's proxy doesn't forward X-Forwarded-Host to the DenchClaw
+      # web runtime, so without this env var the callback URL resolves to
+      # http://127.0.0.1:3100 — fine for local dev, broken in production.
+      # sync:false so each deployment fills in its own onrender.com URL.
+      - key: DENCHCLAW_PUBLIC_URL
+        sync: false
     disk:
       name: openclaw-data
       mountPath: /data
