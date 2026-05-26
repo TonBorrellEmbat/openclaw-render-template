@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@chrysb/alphaclaw": "https://github.com/jjmata/alphaclaw/archive/cbb3be382086e027498ddb75153c1360fe9f1919.tar.gz",
-    "denchclaw": "https://github.com/TonBorrellEmbat/DenchClaw/releases/download/v3.1.2-mcp-direct.1/denchclaw-3.1.2.tgz"
+    "denchclaw": "https://github.com/TonBorrellEmbat/DenchClaw/releases/download/v3.1.2-composio-direct.3/denchclaw-3.1.2.tgz"
   },
   "engines": {
     "node": ">=22.14.0"
