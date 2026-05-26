@@ -10,6 +10,10 @@ services:
         sync: false
       - key: COMPOSIO_API_KEY
         sync: false
+      - key: HUBSPOT_OAUTH_CLIENT_ID
+        sync: false
+      - key: HUBSPOT_OAUTH_CLIENT_SECRET
+        sync: false
       - key: OPENCLAW_GATEWAY_TOKEN
         generateValue: true
       - key: WEBHOOK_TOKEN
