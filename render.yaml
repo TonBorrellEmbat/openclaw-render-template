@@ -8,6 +8,8 @@ services:
     envVars:
       - key: SETUP_PASSWORD
         sync: false
+      - key: COMPOSIO_API_KEY
+        sync: false
       - key: OPENCLAW_GATEWAY_TOKEN
         generateValue: true
       - key: WEBHOOK_TOKEN
