@@ -14,5 +14,12 @@ RUN mkdir -p /data
 
 EXPOSE 3000
 
-ENTRYPOINT ["/usr/bin/tini", "--"]
+# DenchClaw caches its Next.js standalone build under /data (persistent disk)
+# at /data/.openclaw-dench/web-runtime/app/. Once that copy exists, every
+# subsequent `denchclaw start` reuses it and ignores any fresh code in
+# /app/node_modules/denchclaw/. That means our fork's UI changes only land
+# the FIRST time the disk is provisioned. Wipe it on every container start
+# so AlphaClaw's "runtime missing -> denchclaw update" fallback reinstalls
+# from the current npm package each deploy.
+ENTRYPOINT ["/usr/bin/tini", "--", "/bin/sh", "-c", "rm -rf /data/.openclaw-dench/web-runtime/app /root/.openclaw-dench/web-runtime/app 2>/dev/null; exec \"$@\"", "--"]
 CMD ["alphaclaw", "start"]
